@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | [น.ส.ทัยภัทร วัฒชะนะพงษ์]</title>
+    <style>
+        /* นำเข้าฟอนต์ภาษาไทยที่ดูทันสมัยจาก Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap');
+
+        /* ตั้งค่าพื้นฐาน */
+        body {
+            font-family: 'Prompt', sans-serif;
+            background-color: #FFF5F7; /* สีพื้นหลังชมพูพาสเทลอ่อนมาก สบายตา */
+            color: #4A3B3E; /* ใช้สีน้ำตาลอมเทาแทนสีดำสนิท เพื่อความละมุน */
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* ส่วนหัวของเว็บ (Header) */
+        header {
+            background-color: #FFFFFF;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(255, 182, 193, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        header h1 { 
+            margin: 0; 
+            font-size: 24px; 
+            color: #E88C9A; /* สีชมพูเข้มขึ้นมานิดหน่อยเป็นจุดเด่น */
+        }
+        nav a { 
+            margin-left: 25px; 
+            text-decoration: none; 
+            color: #4A3B3E; 
+            font-weight: 600; 
+            transition: color 0.3s ease;
+        }
+        nav a:hover { 
+            color: #E88C9A; 
+        }
+
+        /* กำหนดความกว้างของเนื้อหาให้อยู่ตรงกลาง ไม่ชิดขอบจอ */
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        /* ส่วนแนะนำตัว (Profile Section) */
+        .profile-section {
+            display: flex;
+            background: #FFFFFF;
+            border-radius: 20px; /* ขอบมนดูเป็นผู้หญิงและทันสมัย */
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(255, 182, 193, 0.15);
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+        .profile-image {
+            flex-shrink: 0;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%; /* ทำให้รูปเป็นวงกลม */
+            object-fit: cover;
+            border: 6px solid #FFD1DC; /* กรอบสีชมพูพาสเทล */
+            box-shadow: 0 8px 25px rgba(255, 182, 193, 0.4);
+        }
+        .profile-info {
+            flex-grow: 1;
+        }
+        .profile-info h2 {
+            color: #E88C9A;
+            font-size: 32px;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .profile-info p.bio {
+            font-size: 16px;
+            color: #7A6A6D;
+            margin-bottom: 20px;
+        }
+        .info-list {
+            list-style: none;
+            padding: 0;
+        }
+        .info-list li { 
+            margin-bottom: 12px; 
+            font-size: 16px;
+        }
+        .info-list strong { 
+            color: #D47988; 
+            display: inline-block;
+            width: 120px; /* จัดให้ข้อความตรงกัน */
+        }
+
+        /* ส่วนประวัติการศึกษา (Education Section) */
+        .education-section {
+            background: #FFFFFF;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(255, 182, 193, 0.15);
+        }
+        .education-section h3 {
+            color: #E88C9A;
+            font-size: 28px;
+            margin-top: 0;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        /* สร้างเส้น Timeline สำหรับการศึกษา */
+        .timeline {
+            border-left: 3px solid #FFD1DC;
+            margin-left: 20px;
+            padding-left: 30px;
+        }
+        .timeline-item {
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: #E88C9A;
+            border-radius: 50%;
+            left: -39px;
+            top: 5px;
+            box-shadow: 0 0 0 4px #FFFFFF, 0 0 0 7px #FFD1DC;
+        }
+        .timeline-item h4 { 
+            margin: 0 0 5px 0; 
+            color: #4A3B3E; 
+            font-size: 20px;
+        }
+        .timeline-item p { 
+            margin: 0; 
+            color: #7A6A6D; 
+            font-size: 15px;
+        }
+
+        /* ส่วนท้ายของเว็บ (Footer) */
+        footer {
+            background-color: #FFD1DC;
+            color: #4A3B3E;
+            text-align: center;
+            padding: 25px 20px;
+            margin-top: 50px;
+            font-size: 14px;
+        }
+
+        /* ทำให้เว็บรองรับมือถือ (Responsive) */
+        @media (max-width: 768px) {
+            .profile-section { 
+                flex-direction: column; 
+                text-align: center; 
+                gap: 30px;
+                padding: 30px 20px;
+            }
+            .info-list strong {
+                display: block;
+                width: auto;
+                margin-bottom: 5px;
+            }
+            header { 
+                flex-direction: column; 
+                gap: 15px; 
+                padding: 15px;
+            }
+            nav a { margin: 0 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>My Portfolio</h1>
+        <nav>
+            <a href="#about">แนะนำตัว</a>
+            <a href="#education">การศึกษา</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        
+        <section id="about" class="profile-section">
+            <img src="me.jpg" alt="รูปโปรไฟล์" class="profile-image">
+            
+            <div class="profile-info">
+                <h2>แนะนำตัว</h2>
+                <ul class="info-list">
+                    <li><strong>ชื่อ-นามสกุล:</strong> นางสาว ทัยภัทร วัฒชะนะพงษ์</li>
+                    <li><strong>อายุ:</strong> 18 ปี</li>
+                    <li><strong>งานอดิเรก:</strong> ฟังเพลง, อ่านหนังสือ , ร้องเพลง , ดูซีรี่ย์  , ออกกำกาย</li>
+                    <li><strong>สิ่งที่ชื่นชอบ:</strong> นอน </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="education" class="education-section">
+            <h3>ประวัติการศึกษา</h3>
+            <div class="timeline">
+                
+                <div class="timeline-item">
+                    <h4>ระดับมัธยมศึกษาตอนปลาย (ม.4 - ม.6)</h4>
+                    <p>โรงเรียน ราชวินิต มัธมย</p>
+                    <p>สายการเรียน อังกฤษ - จีน</p>
+                    <p>ปีการศึกษา พ.ศ.2566 - 2568</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>ระดับมัธยมศึกษาตอนต้น (ม.1 - ม.3)</h4>
+                    <p>โรงเรียน อังกฤษ - จีน</p>
+                    <p>ปีการศึกษา พ.ศ. 2563 - 2566</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>ระดับประถมศึกษา (ป.1 - ป.6)</h4>
+                    <p>โรงเรียน ราชวินิตประถม</p>
+                    <p>ปีการศึกษา พ.ศ. 2556 - 2562</p>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 โดย น.ส.ทัยภัทร วัฒชะนะพงษ์</p>
+    </footer>
+
+</body>
+</html>
